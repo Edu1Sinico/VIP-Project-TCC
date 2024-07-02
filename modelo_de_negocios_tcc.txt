@@ -1,0 +1,101 @@
+Modelo de Negócios:
+
+1. Objetos, membros e suas funções:
+
+Objetivos para serem alcançados (Mês de Julho):
+
+ 1. Definir as funções de cada membro;
+ 2. Criar um repositório no GitHub;
+ 3. Definir a estrutura MER do banco de dados;
+ 4. Iniciar os estudos para a implementação do Framework Angular e Iconic;
+ 5. Criar uma documentação para as futuras apresentações para o professor;
+ 6. Manter o alinhamento da dupla diante o projeto.
+
+Membros:
+
+   - Yasmin:
+
+
+
+   - Eduardo Sinico:
+
+
+
+
+2. Ideias:
+
+   - Possibilidade de recarga do vale transporte de forma online;
+   - Solicitação e aprovação de documentos
+   - Monitoramento da trajetória do ônibus (Exibir os horários de chegada, partida, a duração do percurso, os locais que ele parou e etc.);
+   - Mostrar avisos de atrasos ou acidentes que ocorreram;
+   - Pesquisar e salvar rotas favoritas do usuário;
+
+Desafios:
+
+   - Realizar o monitoramento do transporte;
+   - Realizar as funcionalidades para com que o sistema funcione de forma offline;
+
+
+
+3. Banco de Dados:
+
+Definir as tabelas para o banco MySQL:
+
+ 1. Usuários;
+ 2. Administrador;
+ 3. Empresa;
+ 4. Rotas;
+ 5. Transporte;
+ 6. Cartao;
+ 7. Recargas;
+ 8. Locais;
+
+As informações obtidas devem ser utilizadas de forma clara e objetiva.
+
+	Usuarios:
+	   - cpf int primary key;
+	   - Nome varchar(125) not null;
+	   - Email varchar(100) unique not null;
+	   - Senha varchar(100) not null;
+	   - Tipo varchar(5) default 'comum';
+
+	Administrador:
+	   - id_adm int primary key auto increment;
+	   - Nome varchar(125) not null;
+	   - Email varchar(100) unique not null;
+	   - Senha varchar(100) not null;
+	   - Tipo varchar(5) default 'admin';
+
+	
+	Empresa:
+	   - cnpj int primary key;
+	   - Nome varchar(100) unique not null;
+	   - Telefone varchar(15) not null;
+	   - Email varchar(100) unique not null;
+	   - Endereco varchar(200) not null;
+
+	Rotas:
+	   - id_rota int primary key auto increment;
+	   - Origem varchar(200) not null;
+	   - Destino varchar(200) not null;
+	   - Duracao int not null; (Minutos)
+	   - Distancia int not null; (Metros)
+
+	Transporte:
+	   - id_onibus int primary key Auto increment;
+	   - placa varchar(10) unique not null
+	   - modelo varchar(50) not null;
+	   - capacidade int not null;
+
+	Recargas:
+	   - id_recarga int primary key auto increment;
+	   - id_cartao int foreign key not null; (referencia 'Cartao(id_cartao)')
+	   - cpf_usuario int foreign key not null; (referencia 'Usuarios(cpf)')
+	   - data_recarga datetime not null;
+	   - valor decimal(10,2) not null;
+
+	Cartao:
+	   - id_cartao int primary key auto increment;
+	   - cpf_usuario int foreign key not null; (referencia 'Usuarios(cpf)')
+	   - saldo decimal(10,2) not null;
+	   - data validade datetime not null;
