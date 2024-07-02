@@ -98,4 +98,4 @@ As informações obtidas devem ser utilizadas de forma clara e objetiva.
 	   - id_cartao int primary key auto increment;
 	   - cpf_usuario int foreign key not null; (referencia 'Usuarios(cpf)')
 	   - saldo decimal(10,2) not null;
-	   - data validade datetime not null;
+	   - data_validade datetime not null;
