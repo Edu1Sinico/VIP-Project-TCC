@@ -42,14 +42,12 @@ Repositório dedicado para armazenar o projeto do TCC do Cotil.
 <br>
 
 > ## _Estrutura de Programação_
-- [![Angular][Angular.io]][Angular-url]
 **Angular**
 <br>
 
 
 <hr>
 
-- [![Laravel][Laravel.com]][Laravel-url]
 **Framework Laravel**
 <br>
 
@@ -57,6 +55,11 @@ Repositório dedicado para armazenar o projeto do TCC do Cotil.
 <hr>
 
 **IONIC**
+<br>
+
+<hr>
+
+**Framework Bootstrap**
 <br>
 
 <hr>
@@ -70,8 +73,3 @@ Repositório dedicado para armazenar o projeto do TCC do Cotil.
 <br>
 Além disso, utilizamos o Git como sistema de controle de versão, permitindo o armazenamento seguro de todos os arquivos do projeto e da documentação. O Git não só facilita a colaboração entre os membros da equipe, como também assegura que todas as mudanças no código sejam registradas e possam ser revertidas, se necessário, garantindo assim um desenvolvimento mais organizado e controlado.
 
-<!-- MARKDOWN LINKS & IMAGES -->
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
