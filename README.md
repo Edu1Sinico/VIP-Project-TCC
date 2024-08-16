@@ -1,3 +1,8 @@
+<br />
+<div align="center">
+    <img src="introducao/projeto_logo.jfif" alt="Logo" width="80" height="80">
+</div>
+
 # Projeto VIP Transportes - Documentação do Projeto
 Repositório dedicado para armazenar o projeto do TCC do Cotil.
 
