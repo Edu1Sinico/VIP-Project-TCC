@@ -48,6 +48,11 @@ Repositório dedicado para armazenar o projeto do TCC do Cotil.
 
 <hr>
 
+**IONIC**
+<br>
+
+<hr>
+
 **MySQL**
 <br>
 
