@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-    <img src="introducao/projeto_logo.jfif" alt="Logo" width="80" height="80">
+    <img src="introducao/projeto_logo.jfif" alt="Logo" width="120" height="120" style="border-radius:50px;">
 </div>
 
 # Projeto VIP Transportes - Documentação do Projeto
