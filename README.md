@@ -27,7 +27,7 @@ Neste contexto, o presente projeto tem como objetivo desenvolver uma solução t
 <br>
 
 > ## _Objetivos do Projeto_
-O objetivo principal deste projeto é desenvolver uma solução tecnológica que otimize o sistema de transporte público de [nome da sua cidade], melhorando a experiência do usuário através de uma interface web e mobile moderna e eficiente.
+O objetivo principal deste projeto é desenvolver uma solução tecnológica que otimize o sistema de transporte público de Limeira, melhorando a experiência do usuário através de uma interface web e mobile moderna e eficiente.
 
 **Objetivos Específicos:**
 
@@ -49,7 +49,37 @@ O objetivo principal deste projeto é desenvolver uma solução tecnológica que
 <br>
 
 > ## _Metodologia_
+Para alcançar os objetivos propostos, seguimos uma abordagem metodológica estruturada em várias etapas, que envolveu desde a coleta de dados até o desenvolvimento e validação do sistema. As principais etapas incluem:
+<br>
+**Pesquisa e Levantamento de Dados:**
 
+- Realizamos um levantamento detalhado de dados sobre as rotas, horários e padrões de uso do transporte público em Limeira. Essa pesquisa envolveu a análise de registros históricos, entrevistas com usuários e operadores do sistema, além da coleta de dados em tempo real via sensores e dispositivos de GPS.
+- Analisamos os problemas mais comuns enfrentados pelos usuários, como atrasos, falta de informações precisas e dificuldades no planejamento de rotas.
+<br>
+
+**Desenvolvimento do Sistema:**
+
+- Com base nos dados coletados, iniciamos o desenvolvimento de um sistema de gerenciamento inteligente de transporte público. Esse sistema foi construído utilizando uma combinação de tecnologias avançadas, como:
+GPS para rastreamento em tempo real dos veículos.
+- Big Data para processamento e análise de grandes volumes de informações, permitindo a identificação de padrões e anomalias.
+- Machine Learning para prever atrasos e sugerir rotas alternativas com base nas condições atuais e históricas do tráfego.
+<br>
+
+**Testes e Validação:**
+
+- Realizamos uma série de testes rigorosos para validar a eficácia do sistema em diferentes condições, como horários de pico, mudanças climáticas e interrupções inesperadas no serviço.
+- Esses testes foram fundamentais para identificar falhas e realizar os ajustes necessários, garantindo que o sistema funcione de forma confiável e eficiente em situações reais.
+<br>
+
+**Implementação Piloto:**
+
+- Implementamos o sistema em fase piloto em determinadas rotas e horários específicos para avaliar seu desempenho e coletar feedback dos usuários.
+- Com base nos resultados obtidos na fase piloto, fizemos as otimizações necessárias antes da implementação em larga escala.
+<br>
+
+**Análise de Impacto:**
+
+- Após a implementação, realizamos uma análise do impacto do sistema na qualidade do serviço de transporte público, avaliando aspectos como redução de atrasos, melhoria na satisfação dos usuários e eficiência operacional.
 
 <br>
 
