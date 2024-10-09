@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { View, StyleSheet, Text, Image, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const logo = require("@/assets/images/vip_tranportes_logo_transparent.png");
 const background = require("@/assets/images/background/bus_background.png");
@@ -15,33 +16,36 @@ export default function loginScreen() {
     return (
         <View style={styles.container}>
             <ImageBackground source={background} resizeMode='repeat' style={styles.backgroundImage}>
-                <View style={styles.loginSection}>
+                <View style={styles.registerSection}>
 
                     <View style={styles.topSection}>
-                        <Image
-                            source={logo}
-                            style={styles.logo}
-                        />
+                        <View style={styles.userSection}>
+                            <Icon name="user" size={110} color="#166CE2" />
+                        </View>
+
                         <Text style={styles.title}>Cadastrar-se</Text>
                     </View>
-
                     <View style={styles.middleSection}>
 
                         {/* Campo de usuário */}
-                        {/* Campo do Email */}
                         <View style={styles.inputSection}>
-                            <Text style={styles.label}>Usuário:</Text>
+                            <View style={styles.iconInputSection}>
+                                <Icon name="user" size={20} color="#fff" />
+                            </View>
                             <TextInput
                                 style={styles.input}
                                 placeholder="Usuário"
                                 value={user}
-                                onChangeText={setUser} // Atualiza o estado com o texto digitado
+                                onChangeText={setUser}
                             />
                         </View>
 
+
                         {/* Campo do Email */}
                         <View style={styles.inputSection}>
-                            <Text style={styles.label}>E-mail:</Text>
+                            <View style={styles.iconInputSection}>
+                                <Icon name="at" size={20} color="#fff" />
+                            </View>
                             <TextInput
                                 style={styles.input}
                                 placeholder="E-mail"
@@ -53,8 +57,9 @@ export default function loginScreen() {
 
                         {/* Campo de Senha */}
                         <View style={styles.inputSection}>
-                            {/* Campo da Senha */}
-                            <Text style={styles.label}>Senha:</Text>
+                            <View style={styles.iconInputSection}>
+                                <Icon name="lock" size={20} color="#fff" />
+                            </View>
                             <TextInput
                                 style={styles.input}
                                 placeholder="Senha"
@@ -66,8 +71,9 @@ export default function loginScreen() {
 
                         {/* Campo para confirmar Senha */}
                         <View style={styles.inputSection}>
-                            {/* Campo da Senha */}
-                            <Text style={styles.label}>Confirmar Senha:</Text>
+                            <View style={styles.iconInputSection}>
+                                <Icon name="lock" size={20} color="#fff" />
+                            </View>
                             <TextInput
                                 style={styles.input}
                                 placeholder="Confirmar Senha"
@@ -80,8 +86,11 @@ export default function loginScreen() {
                     </View>
 
                     <View style={styles.bottomSection}>
-                        <TouchableOpacity style={styles.loginButton}>
-                            <Text style={styles.loginTextButton}>Login</Text>
+                        <TouchableOpacity style={styles.registerButton}>
+                            <Text style={styles.registerTextButton}>Registrar</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.touchLink}>
+                            <Text style={styles.link}>Já possuí uma conta? Realize o seu Login!</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -102,25 +111,34 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
 
-    loginSection: {
+    registerSection: {
+        flex: 1,
         backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        borderRadius: 15,
         borderStyle: "solid",
-        borderWidth: 3,
-        borderColor: "transparent",
-        width: '80%',
-        height: '90%',
+        width: '100%',
+        height: '100%',
         flexDirection: 'column',
         alignItems: 'center',
+        justifyContent: 'center',
     },
 
     topSection: {
         width: '100%',
-        height: 198,
+        height: 200,
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-evenly',
     },
+
+    userSection: {
+        width: 150,
+        height: 150,
+        backgroundColor: '#FFF',
+        borderRadius: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
 
     logo: {
         width: 175,
@@ -129,8 +147,8 @@ const styles = StyleSheet.create({
 
     title: {
         fontSize: 20,
-        fontWeight: 'bold',
-        color: '#AB9E59',
+        fontWeight: '400',
+        color: '#166CE2',
     },
 
     middleSection: {
@@ -141,9 +159,10 @@ const styles = StyleSheet.create({
     },
 
     inputSection: {
-        width: '85%',
-        flexDirection: 'column',
-        marginBottom: 5,
+        width: '100%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     label: {
@@ -152,14 +171,21 @@ const styles = StyleSheet.create({
     },
 
     input: {
-        height: 35,
-        borderColor: 'transparent',
+        width: '65%',
+        height: 45,
         backgroundColor: '#fff',
-        borderWidth: 1,
-        borderRadius: 15,
         paddingLeft: 10,
         color: '#C7C7C7',
     },
+
+    iconInputSection: {
+        width: 45,
+        height: 45,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#166CE2',
+    },
+
 
     touchLink: {
         width: '100%',
@@ -175,14 +201,14 @@ const styles = StyleSheet.create({
 
     bottomSection: {
         width: '100%',
-        height: 140,
+        height: 100,
         justifyContent: 'center',
         alignItems: 'center',
     },
 
-    loginButton: {
+    registerButton: {
         padding: 15,
-        height: 70,
+        height: 50,
         width: 120,
         alignItems: 'center',
         justifyContent: 'center',
@@ -193,11 +219,10 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
     },
 
-    loginTextButton: {
+    registerTextButton: {
         fontSize: 20,
         fontWeight: 'bold',
         color: '#fff',
     },
-
 
 });

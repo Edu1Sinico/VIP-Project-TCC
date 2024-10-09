@@ -55,7 +55,6 @@ export default function loginScreen() {
 
             {/* Campo de Senha */}
             <View style={styles.inputSection}>
-              {/* Campo da Senha */}
               <View style={styles.iconInputSection}>
                 <Icon name="lock" size={20} color="#fff" />
               </View>
@@ -203,6 +202,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
-
 
 });
