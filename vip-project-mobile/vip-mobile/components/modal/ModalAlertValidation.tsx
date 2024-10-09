@@ -5,15 +5,17 @@ import Icon from 'react-native-vector-icons/Feather';
 export function ModalAlertValidation({ handleClose }) {
 
     return (
+
+        // Campos vazios
         <View style={styles.container}>
             <View style={styles.content}>
                 <View style={styles.titleSection}>
-                    <Icon name="alert-triangle" size={35} color="#166CE2" />
+                    <Icon name="alert-triangle" size={40} color="#fff"/>
                     <Text style={styles.title}>Por favor, preenche todos os campos!</Text>
                 </View>
 
                 <TouchableOpacity style={styles.confirmButton} onPress={handleClose}>
-                    <Text style={styles.confirmTextButton}>Ok</Text>
+                    <Text style={styles.confirmTextButton}>Fechar</Text>
                 </TouchableOpacity>
             </View>
 
@@ -35,19 +37,20 @@ const styles = StyleSheet.create({
 
     content: {
         backgroundColor: "#FFF",
-        width: '90%',
-        height: 170,
-        paddingTop: 24,
-        paddingBottom: 24,
+        width: '80%',
+        height: 200,
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'space-around',
         borderRadius: 8,
     },
 
     titleSection: {
+        backgroundColor: '#166CE2',
         width: '100%',
-        flexDirection: 'row',
+        height: '50%',
+        borderTopRightRadius: 8,
+        borderTopLeftRadius: 8,
+        flexDirection: 'column',
         justifyContent: 'space-evenly',
         alignItems: 'center',
     },
@@ -55,20 +58,17 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: '400',
-        color: '#166CE2',
+        color: '#fff',
     },
 
     confirmButton: {
         padding: 15,
-        height: 45,
-        width: 85,
+        height: 40,
+        width: 100,
+        marginTop: 35,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#166CE2',
-        shadowColor: '#000',
-        shadowOffset: { width: 4, height: 4 },
-        shadowOpacity: 0.5,
-        shadowRadius: 10,
     },
 
     confirmTextButton: {

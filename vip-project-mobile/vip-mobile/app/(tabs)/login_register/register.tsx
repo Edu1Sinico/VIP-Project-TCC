@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { View, StyleSheet, Text, Image, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, Modal, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+// Importando a tela de aviso do campo vazio
+import { ModalAlertValidation } from '@/components/modal/ModalAlertValidation';
 
 const logo = require("@/assets/images/vip_tranportes_logo_transparent.png");
 const background = require("@/assets/images/background/bus_background.png");
+
 
 
 export default function loginScreen() {
@@ -12,6 +15,23 @@ export default function loginScreen() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [modalVisible, setModalVisible] = useState(false);
+
+    // Validação de campos
+    function inputValidation(user, email, password) {
+        if (user === '' || email === '' || password === '') {
+            setModalVisible(true);  // Exibe o modal se algum campo estiver vazio
+            return false;
+        }
+        // Se a validação passar, prossegue com o login ou outra ação
+        return true;
+    }
+
+    const handleRegister = () => {
+        if (inputValidation(user, email, password)) {
+
+        }
+    };
 
     return (
         <View style={styles.container}>
@@ -37,6 +57,7 @@ export default function loginScreen() {
                                 placeholder="Usuário"
                                 value={user}
                                 onChangeText={setUser}
+                                underlineColorAndroid="transparent"
                             />
                         </View>
 
@@ -52,6 +73,7 @@ export default function loginScreen() {
                                 value={email}
                                 onChangeText={setEmail} // Atualiza o estado com o texto digitado
                                 keyboardType="email-address" // Define o tipo de teclado como email
+                                underlineColorAndroid="transparent"
                             />
                         </View>
 
@@ -66,13 +88,14 @@ export default function loginScreen() {
                                 secureTextEntry={true} // Oculta o texto
                                 value={password}
                                 onChangeText={setPassword} // Atualiza o estado com o texto digitado
+                                underlineColorAndroid="transparent"
                             />
                         </View>
 
                         {/* Campo para confirmar Senha */}
                         <View style={styles.inputSection}>
                             <View style={styles.iconInputSection}>
-                                <Icon name="lock" size={20} color="#fff" />
+                                <Icon name="unlock-alt" size={20} color="#fff" />
                             </View>
                             <TextInput
                                 style={styles.input}
@@ -80,13 +103,14 @@ export default function loginScreen() {
                                 secureTextEntry={true} // Oculta o texto
                                 value={confirmPassword}
                                 onChangeText={setConfirmPassword} // Atualiza o estado com o texto digitado
+                                underlineColorAndroid="transparent"
                             />
                         </View>
 
                     </View>
 
                     <View style={styles.bottomSection}>
-                        <TouchableOpacity style={styles.registerButton}>
+                        <TouchableOpacity style={styles.registerButton} onPress={handleRegister}>
                             <Text style={styles.registerTextButton}>Registrar</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.touchLink}>
@@ -95,7 +119,18 @@ export default function loginScreen() {
                     </View>
                 </View>
             </ImageBackground >
+
+            {/* Modal de alerta */}
+            <Modal
+                animationType='fade'
+                transparent={true}
+                visible={modalVisible}
+            >
+                <ModalAlertValidation handleClose={() => setModalVisible(false)} />
+            </Modal>
         </View >
+
+
     );
 }
 
