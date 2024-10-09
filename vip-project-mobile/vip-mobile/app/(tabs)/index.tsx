@@ -1,15 +1,33 @@
 import { useState } from 'react';
-import { View, StyleSheet, Text, Image, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, Modal, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+// Importando a tela de aviso do campo vazio
+import { ModalAlertValidation } from '@/components/modal/ModalAlertValidation';
 
 const background = require("@/assets/images/background/bus_background.png");
 
-
 export default function loginScreen() {
-
   const [email, setEmail] = useState('');  // Estado para armazenar o valor do campo de texto
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
+
+  // Validação de campos
+  function inputValidation(user, email, password) {
+    if (user === '' || email === '' || password === '') {
+      setModalVisible(true);  // Exibe o modal se algum campo estiver vazio
+      return false;
+    }
+    // Se a validação passar, prossegue com o login ou outra ação
+    return true;
+  }
+
+  const handleLogin = () => {
+    if (inputValidation(user, email, password)) {
+      // Lógica de login aqui
+      console.log("Login realizado com sucesso!");
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -74,7 +92,7 @@ export default function loginScreen() {
           </View>
 
           <View style={styles.bottomSection}>
-            <TouchableOpacity style={styles.loginButton}>
+            <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
               <Text style={styles.loginTextButton}>Login</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.touchLink}>
@@ -83,6 +101,15 @@ export default function loginScreen() {
           </View>
         </View>
       </ImageBackground >
+
+      {/* Modal de alerta */}
+      <Modal
+        animationType='fade'
+        transparent={true}
+        visible={modalVisible}
+      >
+        <ModalAlertValidation handleClose={() => setModalVisible(false)} />
+      </Modal>
     </View >
   );
 }
