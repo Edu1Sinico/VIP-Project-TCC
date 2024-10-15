@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import { View, StyleSheet, Text, Modal, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
+import { useLinkTo } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 // Importando a tela de aviso do campo vazio
 import { ModalAlertValidation } from '@/components/modal/ModalAlertValidation';
+import React from 'react';
 
 const background = require("@/assets/images/background/bus_background.png");
 
-export default function loginScreen() {
+export default function LoginScreen() {
     const [email, setEmail] = useState('');  // Estado para armazenar o valor do campo de texto
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
+    const linkTo = useLinkTo(); // Sistema de links do react navigator
 
     // Validação de campos
     function inputValidation(user, email, password) {
@@ -98,7 +101,7 @@ export default function loginScreen() {
                         <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
                             <Text style={styles.loginTextButton}>Login</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.touchLink}>
+                        <TouchableOpacity style={styles.touchLink} onPress={() => linkTo('/Register')}>
                             <Text style={styles.link}>Não possuí uma conta? Registra-se!</Text>
                         </TouchableOpacity>
                     </View>
