@@ -68,12 +68,21 @@ export default StyleSheet.create({
         color: '#C7C7C7',
     },
 
+    inputError: {
+        borderColor: 'red',
+        borderWidth: 2,
+    },
+
     iconInputSection: {
         width: 45,
         height: 45,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#166CE2',
+    },
+
+    iconInputError: {
+        backgroundColor: 'red',
     },
 
     touchLink: {
