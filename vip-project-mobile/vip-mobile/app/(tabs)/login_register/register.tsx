@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { View, Text, Modal, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
 // Importando a estilização
-import styles  from '@/app/styles/login_register/RegisterStyle';
+import styles from '@/app/styles/login_register/RegisterStyle';
 import { useLinkTo } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 // Importando a tela de aviso do campo vazio
 import { ModalAlertValidation } from '@/components/modal/ModalAlertValidation';
+import { inputValidationRegister } from '@/app/scripts/login_register/validationRegister';
 import React from 'react';
 
 const logo = require("@/assets/images/vip_tranportes_logo_transparent.png");
@@ -22,19 +23,20 @@ export default function RegisterScreen() {
     const [modalVisible, setModalVisible] = useState(false);
     const linkTo = useLinkTo(); // Sistema de links do react navigator
 
-    // Validação de campos
-    function inputValidation(user, email, password) {
-        if (user === '' || email === '' || password === '') {
-            setModalVisible(true);  // Exibe o modal se algum campo estiver vazio
-            return false;
-        }
-        // Se a validação passar, prossegue com o login ou outra ação
-        return true;
-    }
+    // Estados de erro para campos individuais
+    const [userError, setUserError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
+    const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+
+    // Mensagem de alerta
+    const [messageAlert, setMessageAlert] = useState("");
+
 
     const handleRegister = () => {
-        if (inputValidation(user, email, password)) {
-
+        if (inputValidationRegister(user, email, password, confirmPassword, setMessageAlert, setUserError, setEmailError, setPasswordError, setConfirmPasswordError, setModalVisible)) {
+            // Lógica de login aqui
+            console.log("Login realizado com sucesso!");
         }
     };
 
@@ -54,11 +56,11 @@ export default function RegisterScreen() {
 
                         {/* Campo de usuário */}
                         <View style={styles.inputSection}>
-                            <View style={styles.iconInputSection}>
+                            <View style={[styles.iconInputSection, userError && styles.iconInputError]}>
                                 <Icon name="user" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={styles.input}
+                                style={[styles.input, userError && styles.inputError]}
                                 placeholder="Usuário"
                                 value={user}
                                 onChangeText={setUser}
@@ -69,11 +71,11 @@ export default function RegisterScreen() {
 
                         {/* Campo do Email */}
                         <View style={styles.inputSection}>
-                            <View style={styles.iconInputSection}>
+                            <View style={[styles.iconInputSection, emailError && styles.iconInputError]}>
                                 <Icon name="at" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={styles.input}
+                                style={[styles.input, emailError && styles.inputError]}
                                 placeholder="E-mail"
                                 value={email}
                                 onChangeText={setEmail} // Atualiza o estado com o texto digitado
@@ -84,11 +86,11 @@ export default function RegisterScreen() {
 
                         {/* Campo de Senha */}
                         <View style={styles.inputSection}>
-                            <View style={styles.iconInputSection}>
+                            <View style={[styles.iconInputSection, passwordError && styles.iconInputError]}>
                                 <Icon name="lock" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={styles.input}
+                                style={[styles.input, passwordError && styles.inputError]}
                                 placeholder="Senha"
                                 secureTextEntry={true} // Oculta o texto
                                 value={password}
@@ -99,11 +101,11 @@ export default function RegisterScreen() {
 
                         {/* Campo para confirmar Senha */}
                         <View style={styles.inputSection}>
-                            <View style={styles.iconInputSection}>
+                            <View style={[styles.iconInputSection, confirmPasswordError && styles.iconInputError]}>
                                 <Icon name="unlock-alt" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={styles.input}
+                                style={[styles.input, confirmPasswordError && styles.inputError]}
                                 placeholder="Confirmar Senha"
                                 secureTextEntry={true} // Oculta o texto
                                 value={confirmPassword}
@@ -131,7 +133,7 @@ export default function RegisterScreen() {
                 transparent={true}
                 visible={modalVisible}
             >
-                <ModalAlertValidation handleClose={() => setModalVisible(false)} />
+                <ModalAlertValidation messageAlert={messageAlert} handleClose={() => setModalVisible(false)} />
             </Modal>
         </View >
 

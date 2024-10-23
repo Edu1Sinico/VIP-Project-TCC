@@ -7,7 +7,7 @@ import styles from '@/app/styles/login_register/LoginStyle';
 import Icon from 'react-native-vector-icons/FontAwesome';
 // Importando a tela de aviso do campo vazio
 import { ModalAlertValidation } from '@/components/modal/ModalAlertValidation';
-import { inputValidation } from '@/app/scripts/login_register/validationLogin';
+import { inputValidationLogin } from '@/app/scripts/login_register/validationLogin';
 import React from 'react';
 
 
@@ -31,7 +31,7 @@ export default function LoginScreen() {
 
 
     const handleLogin = () => {
-        if (inputValidation(user, email, password, setMessageAlert, setUserError, setEmailError, setPasswordError, setModalVisible)) {
+        if (inputValidationLogin(user, email, password, setMessageAlert, setUserError, setEmailError, setPasswordError, setModalVisible)) {
             // Lógica de login aqui
             console.log("Login realizado com sucesso!");
         }

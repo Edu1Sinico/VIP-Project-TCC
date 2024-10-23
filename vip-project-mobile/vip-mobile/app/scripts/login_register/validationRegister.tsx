@@ -1,9 +1,9 @@
-export function inputValidationLogin(user, email, password, setMessageAlert, setUserError, setEmailError, setPasswordError, setModalVisible) {
+export function inputValidationRegister(user, email, password, confirmPassword, setMessageAlert, setUserError, setEmailError, setPasswordError, setConfirmPasswordError, setModalVisible) {
     let isValid = true;
     let message = "";
 
     // Verifica se todos os campos estão vazios
-    if (!(user === '' && email === '' && password === '')) {
+    if (!(user === '' && email === '' && password === '' && confirmPassword === '')) {
         // Validações para o campo de 'Usuário'
         if (user === '') {
             setUserError(true);
@@ -33,19 +33,29 @@ export function inputValidationLogin(user, email, password, setMessageAlert, set
 
         // Validação do Campo de senha
         if (!(password === '')) {
-            if (password.length < 8) { // Validação temporária, precisa ser trocada para a verificação de igualdade entre senhas no banco de dados.
-                message = 'O campo de senha precisar ser maior que 8 caracteres!';
-                setPasswordError(true);
-                isValid = false;
+            if (password === confirmPassword) {
+                if (password.length < 8) {
+                    message = 'O campo de senha precisar ser maior que 8 caracteres!';
+                    setPasswordError(true);
+                    isValid = false;
+                }
+                else {
+                    setPasswordError(false);
+                    setConfirmPasswordError(false);
+                }
             }
             else {
-                setPasswordError(false);
+                message = 'O campo de "senha" e "confirmar senha" precisam ser iguais!';
+                setPasswordError(true);
+                setConfirmPasswordError(true);
+                isValid = false;
             }
         } else {
             message = 'O campo de senha não pode ser vazio!';
             isValid = false;
             setPasswordError(true);
         }
+
 
     }
     else {
@@ -55,6 +65,7 @@ export function inputValidationLogin(user, email, password, setMessageAlert, set
         setUserError(true);
         setEmailError(true);
         setPasswordError(true);
+        setConfirmPasswordError(true);
     }
 
     if (!isValid) {
@@ -64,4 +75,3 @@ export function inputValidationLogin(user, email, password, setMessageAlert, set
 
     return isValid; // Retorna se o formulário é válido ou não
 };
-

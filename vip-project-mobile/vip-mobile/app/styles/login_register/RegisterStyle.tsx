@@ -79,6 +79,11 @@ export default StyleSheet.create({
         color: '#C7C7C7',
     },
 
+    inputError: {
+        borderColor: 'red',
+        borderWidth: 2,
+    },
+
     iconInputSection: {
         width: 45,
         height: 45,
@@ -87,6 +92,9 @@ export default StyleSheet.create({
         backgroundColor: '#166CE2',
     },
 
+    iconInputError: {
+        backgroundColor: 'red',
+    },
 
     touchLink: {
         width: '100%',
