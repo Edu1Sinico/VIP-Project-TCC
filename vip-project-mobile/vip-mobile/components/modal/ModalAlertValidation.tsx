@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 // Link do site de ícones: https://oblador.github.io/react-native-vector-icons/
 
-export function ModalAlertValidation({ handleClose }) {
+export function ModalAlertValidation({ messageAlert, handleClose }) {
 
     return (
 
@@ -11,7 +11,7 @@ export function ModalAlertValidation({ handleClose }) {
             <View style={styles.content}>
                 <View style={styles.titleSection}>
                     <Icon name="alert-triangle" size={40} color="#fff"/>
-                    <Text style={styles.title}>Por favor, preenche todos os campos!</Text>
+                    <Text style={styles.title}>{messageAlert}</Text>
                 </View>
 
                 <TouchableOpacity style={styles.confirmButton} onPress={handleClose}>

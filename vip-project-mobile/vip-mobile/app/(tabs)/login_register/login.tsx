@@ -25,36 +25,72 @@ export default function LoginScreen() {
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
 
+    // Mensagem de alerta
+    let message = "";
+    const [messageAlert, setMessageAlert] = useState("");
+
 
     // Validação de campos
     function inputValidation(user, email, password) {
         let isValid = true;
 
-        // Verifica se o campo de usuário está vazio
-        if (user === '') {
+        // Verifica se todos os campos estão vazios
+        if (!(user === '' && email === '' && password === '')) {
+            // Validações para o campo de 'Usuário'
+            if (user === '') {
+                setUserError(true);
+                message = 'O campo de usuário não pode ser vazio!';
+                isValid = false;
+            }
+            else {
+                setUserError(false);
+            }
+
+            // Validação para Email
+            if (!(email === '')) {
+                // Verifica se o campo de Email contém o "@"
+                if (!email.includes('@') || !email.includes('.com')) {
+                    message = 'O campo de e-mail precisa conter o (@) ou (.com)!';
+                    setEmailError(true);
+                    isValid = false;
+                }
+                else {
+                    setEmailError(false);
+                }
+            } else {
+                message = 'O campo de e-mail não pode ser vazio!';
+                isValid = false;
+                setEmailError(true);
+            }
+
+            // Validação do Campo de senha
+            if (!(password === '')) {
+                if (password.length < 8) { // Validação temporária, precisa ser trocada para a verificação de igualdade entre senhas no banco de dados.
+                    message = 'O campo de senha precisar ser maior que 8 caracteres!';
+                    setPasswordError(true);
+                    isValid = false;
+                }
+                else {
+                    setPasswordError(false);
+                }
+            } else {
+                message = 'O campo de senha não pode ser vazio!';
+                isValid = false;
+                setPasswordError(true);
+            }
+
+        }
+        else {
+            // Insere a mensagem de validação
+            message = 'Por favor, preenche todos os campos!';
+            isValid = false;
             setUserError(true);
-            isValid = false;
-        } else {
-            setUserError(false);
-        }
-
-        // Verifica se o campo de email está vazio ou não contém "@"
-        if (email === '' || !email.includes('@')) {
             setEmailError(true);
-            isValid = false;
-        } else {
-            setEmailError(false);
-        }
-
-        // Verifica se o campo de senha está vazio
-        if (password === '') {
             setPasswordError(true);
-            isValid = false;
-        } else {
-            setPasswordError(false);
         }
 
         if (!isValid) {
+            setMessageAlert(message); // Inseri a mensagem de alerta no setState
             setModalVisible(true); // Exibe o modal se houver erro
         }
 
@@ -86,71 +122,71 @@ export default function LoginScreen() {
                         {/* Campo de Usuário */}
                         <View style={styles.inputSection}>
                             <View style={[styles.iconInputSection, userError && styles.iconInputError]}>
-                            <Icon name="user" size={20} color="#fff" />
+                                <Icon name="user" size={20} color="#fff" />
+                            </View>
+                            <TextInput
+                                style={[styles.input, userError && styles.inputError]} // Aplica o estilo de erro se userError for true
+                                placeholder="Usuário"
+                                value={user}
+                                onChangeText={setUser}
+                                underlineColorAndroid="transparent"
+                            />
                         </View>
-                        <TextInput
-                            style={[styles.input, userError && styles.inputError]} // Aplica o estilo de erro se userError for true
-                            placeholder="Usuário"
-                            value={user}
-                            onChangeText={setUser}
-                            underlineColorAndroid="transparent"
-                        />
+
+                        {/* Campo do Email */}
+                        <View style={styles.inputSection}>
+                            <View style={[styles.iconInputSection, emailError && styles.iconInputError]}>
+                                <Icon name="at" size={20} color="#fff" />
+                            </View>
+                            <TextInput
+                                style={[styles.input, emailError && styles.inputError]} // Aplica o estilo de erro se emailError for true
+                                placeholder="E-mail"
+                                value={email}
+                                onChangeText={setEmail} // Atualiza o estado com o texto digitado
+                                keyboardType="email-address" // Define o tipo de teclado como email
+                                underlineColorAndroid="transparent"
+                            />
+                        </View>
+
+                        {/* Campo de Senha */}
+                        <View style={styles.inputSection}>
+                            <View style={[styles.iconInputSection, passwordError && styles.iconInputError]}>
+                                <Icon name="lock" size={20} color="#fff" />
+                            </View>
+                            <TextInput
+                                style={[styles.input, passwordError && styles.inputError]} // Aplica o estilo de erro se passwordError for true
+                                placeholder="Senha"
+                                secureTextEntry={true} // Oculta o texto
+                                value={password}
+                                onChangeText={setPassword} // Atualiza o estado com o texto digitado
+                                underlineColorAndroid="transparent"
+                            />
+                        </View>
+
+                        <TouchableOpacity style={styles.touchLink}>
+                            <Text style={styles.link}>Esqueceu a senha? Clique aqui!</Text>
+                        </TouchableOpacity>
+
                     </View>
 
-                    {/* Campo do Email */}
-                    <View style={styles.inputSection}>
-                        <View style={[styles.iconInputSection, emailError && styles.iconInputError]}>
-                            <Icon name="at" size={20} color="#fff" />
-                        </View>
-                        <TextInput
-                            style={[styles.input, emailError && styles.inputError]} // Aplica o estilo de erro se emailError for true
-                            placeholder="E-mail"
-                            value={email}
-                            onChangeText={setEmail} // Atualiza o estado com o texto digitado
-                            keyboardType="email-address" // Define o tipo de teclado como email
-                            underlineColorAndroid="transparent"
-                        />
+                    <View style={styles.bottomSection}>
+                        <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+                            <Text style={styles.loginTextButton}>Login</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.touchLink} onPress={() => linkTo('/Register')}>
+                            <Text style={styles.link}>Não possuí uma conta? Registra-se!</Text>
+                        </TouchableOpacity>
                     </View>
-
-                    {/* Campo de Senha */}
-                    <View style={styles.inputSection}>
-                        <View style={[styles.iconInputSection, passwordError && styles.iconInputError]}>
-                            <Icon name="lock" size={20} color="#fff" />
-                        </View>
-                        <TextInput
-                            style={[styles.input, passwordError && styles.inputError]} // Aplica o estilo de erro se passwordError for true
-                            placeholder="Senha"
-                            secureTextEntry={true} // Oculta o texto
-                            value={password}
-                            onChangeText={setPassword} // Atualiza o estado com o texto digitado
-                            underlineColorAndroid="transparent"
-                        />
-                    </View>
-
-                    <TouchableOpacity style={styles.touchLink}>
-                        <Text style={styles.link}>Esqueceu a senha? Clique aqui!</Text>
-                    </TouchableOpacity>
-
                 </View>
-
-                <View style={styles.bottomSection}>
-                    <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-                        <Text style={styles.loginTextButton}>Login</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.touchLink} onPress={() => linkTo('/Register')}>
-                        <Text style={styles.link}>Não possuí uma conta? Registra-se!</Text>
-                    </TouchableOpacity>
-                </View>
-        </View>
             </ImageBackground >
 
-        {/* Modal de alerta */ }
-        < Modal
-    animationType = 'fade'
-    transparent = { true}
-    visible = { modalVisible }
-        >
-        <ModalAlertValidation handleClose={() => setModalVisible(false)} />
+            {/* Modal de alerta */}
+            < Modal
+                animationType='fade'
+                transparent={true}
+                visible={modalVisible}
+            >
+                <ModalAlertValidation messageAlert={messageAlert} handleClose={() => setModalVisible(false)} />
             </Modal >
         </View >
     );
