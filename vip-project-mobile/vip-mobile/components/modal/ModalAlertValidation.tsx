@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '400',
         color: '#fff',
+        textAlign: 'center',
     },
 
     confirmButton: {

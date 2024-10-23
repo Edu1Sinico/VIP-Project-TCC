@@ -7,6 +7,7 @@ import styles from '@/app/styles/login_register/LoginStyle';
 import Icon from 'react-native-vector-icons/FontAwesome';
 // Importando a tela de aviso do campo vazio
 import { ModalAlertValidation } from '@/components/modal/ModalAlertValidation';
+import { inputValidation } from '@/app/scripts/login_register/validationLogin';
 import React from 'react';
 
 
@@ -26,79 +27,11 @@ export default function LoginScreen() {
     const [passwordError, setPasswordError] = useState(false);
 
     // Mensagem de alerta
-    let message = "";
     const [messageAlert, setMessageAlert] = useState("");
 
 
-    // Validação de campos
-    function inputValidation(user, email, password) {
-        let isValid = true;
-
-        // Verifica se todos os campos estão vazios
-        if (!(user === '' && email === '' && password === '')) {
-            // Validações para o campo de 'Usuário'
-            if (user === '') {
-                setUserError(true);
-                message = 'O campo de usuário não pode ser vazio!';
-                isValid = false;
-            }
-            else {
-                setUserError(false);
-            }
-
-            // Validação para Email
-            if (!(email === '')) {
-                // Verifica se o campo de Email contém o "@"
-                if (!email.includes('@') || !email.includes('.com')) {
-                    message = 'O campo de e-mail precisa conter o (@) ou (.com)!';
-                    setEmailError(true);
-                    isValid = false;
-                }
-                else {
-                    setEmailError(false);
-                }
-            } else {
-                message = 'O campo de e-mail não pode ser vazio!';
-                isValid = false;
-                setEmailError(true);
-            }
-
-            // Validação do Campo de senha
-            if (!(password === '')) {
-                if (password.length < 8) { // Validação temporária, precisa ser trocada para a verificação de igualdade entre senhas no banco de dados.
-                    message = 'O campo de senha precisar ser maior que 8 caracteres!';
-                    setPasswordError(true);
-                    isValid = false;
-                }
-                else {
-                    setPasswordError(false);
-                }
-            } else {
-                message = 'O campo de senha não pode ser vazio!';
-                isValid = false;
-                setPasswordError(true);
-            }
-
-        }
-        else {
-            // Insere a mensagem de validação
-            message = 'Por favor, preenche todos os campos!';
-            isValid = false;
-            setUserError(true);
-            setEmailError(true);
-            setPasswordError(true);
-        }
-
-        if (!isValid) {
-            setMessageAlert(message); // Inseri a mensagem de alerta no setState
-            setModalVisible(true); // Exibe o modal se houver erro
-        }
-
-        return isValid; // Retorna se o formulário é válido ou não
-    }
-
     const handleLogin = () => {
-        if (inputValidation(user, email, password)) {
+        if (inputValidation(user, email, password, setMessageAlert, setUserError, setEmailError, setPasswordError, setModalVisible)) {
             // Lógica de login aqui
             console.log("Login realizado com sucesso!");
         }
