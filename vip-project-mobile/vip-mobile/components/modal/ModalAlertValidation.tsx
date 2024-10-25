@@ -1,25 +1,36 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 // Link do site de ícones: https://oblador.github.io/react-native-vector-icons/
 
-export function ModalAlertValidation({ messageAlert, handleClose }) {
+export function ModalAlertValidation({ messageAlert, successLogin, handleClose}) {
+
 
     return (
 
         // Campos vazios
         <View style={styles.container}>
             <View style={styles.content}>
-                <View style={styles.titleSection}>
-                    <Icon name="alert-triangle" size={40} color="#fff"/>
+                <View style={[styles.titleSection, successLogin && styles.titleSectionSuccess]}>
+                    <Icon
+                        name={successLogin ? "check" : "alert-triangle"}
+                        size={40}
+                        color="#fff"
+                    />
                     <Text style={styles.title}>{messageAlert}</Text>
                 </View>
 
-                <TouchableOpacity style={styles.confirmButton} onPress={handleClose}>
-                    <Text style={styles.confirmTextButton}>Fechar</Text>
-                </TouchableOpacity>
+                {successLogin ? (
+                    // Indicador de login no lugar do botão
+                    <View style={styles.loadingSection}>
+                        <ActivityIndicator size="large" color="#00ff00" />
+                    </View>
+                ) : (
+                    // Botão padrão de fechar quando não for login bem-sucedido
+                    <TouchableOpacity style={styles.confirmButton} onPress={handleClose}>
+                        <Text style={styles.confirmTextButton}>Fechar</Text>
+                    </TouchableOpacity>
+                )}
             </View>
-
-
         </View>
     )
 }
@@ -55,11 +66,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
+    titleSectionSuccess: {
+        backgroundColor: 'green',
+    },
+
     title: {
         fontSize: 20,
         fontWeight: '400',
         color: '#fff',
         textAlign: 'center',
+    },
+    
+    loadingSection: {
+        height: '50%',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     confirmButton: {
@@ -77,4 +98,5 @@ const styles = StyleSheet.create({
         fontWeight: 500,
         color: '#fff',
     }
+    
 });

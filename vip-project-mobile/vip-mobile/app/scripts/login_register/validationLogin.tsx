@@ -1,5 +1,4 @@
 export function inputValidationLogin(user, email, password, setMessageAlert, setUserError, setEmailError, setPasswordError, setModalVisible) {
-    let isValid = true;
     let message = "";
 
     // Verifica se todos os campos estão vazios
@@ -67,6 +66,9 @@ export function inputValidationLogin(user, email, password, setMessageAlert, set
         return false; // Interrompe a execução aqui
     }
 
+    message = 'Login efetuado com sucesso!';
+    setMessageAlert(message);
+    setModalVisible(true);
     return true; // Se todas as validações passarem
 }
 

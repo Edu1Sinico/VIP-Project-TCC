@@ -26,14 +26,16 @@ export default function LoginScreen() {
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
 
+    // Estado para mensagem de sucesso
+    const [successLogin, setSuccessLogin] = useState(false);
+
     // Mensagem de alerta
     const [messageAlert, setMessageAlert] = useState("");
 
 
     const handleLogin = () => {
         if (inputValidationLogin(user, email, password, setMessageAlert, setUserError, setEmailError, setPasswordError, setModalVisible)) {
-            // Lógica de login aqui
-            console.log("Login realizado com sucesso!");
+            setSuccessLogin(true);
         }
     };
 
@@ -119,7 +121,7 @@ export default function LoginScreen() {
                 transparent={true}
                 visible={modalVisible}
             >
-                <ModalAlertValidation messageAlert={messageAlert} handleClose={() => setModalVisible(false)} />
+                <ModalAlertValidation messageAlert={messageAlert} successLogin={successLogin} handleClose={() => setModalVisible(false)} />
             </Modal >
         </View >
     );
