@@ -32,11 +32,17 @@ export default function RegisterScreen() {
     // Mensagem de alerta
     const [messageAlert, setMessageAlert] = useState("");
 
+    // Estado para mensagem de sucesso
+    const [successRegister, setSuccessRegister] = useState(false);
+
 
     const handleRegister = () => {
         if (inputValidationRegister(user, email, password, confirmPassword, setMessageAlert, setUserError, setEmailError, setPasswordError, setConfirmPasswordError, setModalVisible)) {
-            // Lógica de login aqui
-            console.log("Login realizado com sucesso!");
+            setSuccessRegister(true);
+            setTimeout(() => {
+                linkTo('/Home');
+                setModalVisible(false)
+            }, 1500);
         }
     };
 
@@ -133,7 +139,7 @@ export default function RegisterScreen() {
                 transparent={true}
                 visible={modalVisible}
             >
-                <ModalAlertValidation messageAlert={messageAlert} handleClose={() => setModalVisible(false)} />
+                <ModalAlertValidation messageAlert={messageAlert} successMessage={successRegister} handleClose={() => setModalVisible(false)} />
             </Modal>
         </View >
 

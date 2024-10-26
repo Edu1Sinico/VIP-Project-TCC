@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'rea
 import Icon from 'react-native-vector-icons/Feather';
 // Link do site de ícones: https://oblador.github.io/react-native-vector-icons/
 
-export function ModalAlertValidation({ messageAlert, successLogin, handleClose}) {
+export function ModalAlertValidation({ messageAlert, successMessage, handleClose}) {
 
 
     return (
@@ -10,16 +10,16 @@ export function ModalAlertValidation({ messageAlert, successLogin, handleClose})
         // Campos vazios
         <View style={styles.container}>
             <View style={styles.content}>
-                <View style={[styles.titleSection, successLogin && styles.titleSectionSuccess]}>
+                <View style={[styles.titleSection, successMessage && styles.titleSectionSuccess]}>
                     <Icon
-                        name={successLogin ? "check" : "alert-triangle"}
+                        name={successMessage ? "check" : "alert-triangle"}
                         size={40}
                         color="#fff"
                     />
                     <Text style={styles.title}>{messageAlert}</Text>
                 </View>
 
-                {successLogin ? (
+                {successMessage ? (
                     // Indicador de login no lugar do botão
                     <View style={styles.loadingSection}>
                         <ActivityIndicator size="large" color="#00ff00" />

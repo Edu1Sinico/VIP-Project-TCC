@@ -36,6 +36,10 @@ export default function LoginScreen() {
     const handleLogin = () => {
         if (inputValidationLogin(user, email, password, setMessageAlert, setUserError, setEmailError, setPasswordError, setModalVisible)) {
             setSuccessLogin(true);
+            setTimeout(() => {
+                linkTo('/Home');
+                setModalVisible(false)
+            }, 2000);
         }
     };
 
@@ -121,7 +125,7 @@ export default function LoginScreen() {
                 transparent={true}
                 visible={modalVisible}
             >
-                <ModalAlertValidation messageAlert={messageAlert} successLogin={successLogin} handleClose={() => setModalVisible(false)} />
+                <ModalAlertValidation messageAlert={messageAlert} successMessage={successLogin} handleClose={() => setModalVisible(false)} />
             </Modal >
         </View >
     );

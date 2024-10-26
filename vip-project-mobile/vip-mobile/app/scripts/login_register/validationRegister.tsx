@@ -67,5 +67,8 @@ export function inputValidationRegister(user, email, password, confirmPassword, 
         setConfirmPasswordError(false);
     }
 
+    message = 'Usuário cadastrado com sucesso!';
+    setMessageAlert(message);
+    setModalVisible(true);
     return true; // Se todas as validações passarem
 };

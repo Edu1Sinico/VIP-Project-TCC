@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import LoginScreen from './login_register/login';
 import RegisterScreen from './login_register/register';
+import HomeScreen from './home/home';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,9 @@ export default function App() {
           animation: 'fade'
         }} />
         <Stack.Screen name="Register" component={RegisterScreen} options={{
+          animation: 'fade'
+        }} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{
           animation: 'fade'
         }} />
       </Stack.Navigator>
