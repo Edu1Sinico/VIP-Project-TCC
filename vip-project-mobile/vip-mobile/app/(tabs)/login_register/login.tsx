@@ -10,7 +10,6 @@ import { ModalAlertValidation } from '@/components/modal/ModalAlertValidation';
 import { inputValidationLogin } from '@/app/scripts/login_register/validationLogin';
 import React from 'react';
 
-
 const background = require("@/assets/images/background/bus_background.png");
 
 export default function LoginScreen() {

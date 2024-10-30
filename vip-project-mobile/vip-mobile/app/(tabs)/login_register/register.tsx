@@ -9,7 +9,6 @@ import { ModalAlertValidation } from '@/components/modal/ModalAlertValidation';
 import { inputValidationRegister } from '@/app/scripts/login_register/validationRegister';
 import React from 'react';
 
-const logo = require("@/assets/images/vip_tranportes_logo_transparent.png");
 const background = require("@/assets/images/background/bus_background.png");
 
 
