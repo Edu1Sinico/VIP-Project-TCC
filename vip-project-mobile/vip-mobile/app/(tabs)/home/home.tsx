@@ -1,12 +1,22 @@
-import { View, Text } from 'react-native';
-import React from 'react';
-// Importando a estilização
-import styles from '@/app/styles/home/HomeStyle';
+import { StyleSheet } from 'react-native';
 
-export default function HomeScreen() {
-    return(
-      <View>
-        <Text>Bem-Vindo!</Text>
-      </View>  
-    );
-}
+export default StyleSheet.create({
+    container: {
+        flex: 1,
+        height: '100%',
+        backgroundColor: '#166CE2',
+    },
+
+    user_section: {
+        width: '100%',
+        height: '20%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    
+    text_title: {
+        fontSize: 20,
+        fontWeight: 'light',
+        color: '#fff',
+    },
+});
