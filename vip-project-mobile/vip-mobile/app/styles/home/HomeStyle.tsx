@@ -9,13 +9,13 @@ export default StyleSheet.create({
 
     user_section: {
         width: '100%',
-        height: '20%',
+        height: '10%',
         alignItems: 'center',
         justifyContent: 'center',
     },
     
     text_title: {
-        fontSize: 20,
+        fontSize: 22,
         fontWeight: 'light',
         color: '#fff',
     },

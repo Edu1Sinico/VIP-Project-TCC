@@ -6,14 +6,18 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 const Header = () => {
   return (
     <View style={styles.header}>
-      <TouchableOpacity>
-        <Icon name="ellipsis-h" size={25} color="#fff" />
-      </TouchableOpacity>
+      <View style={styles.menu_section}>
+        <TouchableOpacity>
+          <Icon name="ellipsis-h" size={25} color="#fff" />
+        </TouchableOpacity>
+      </View>
 
-      {/* <Image
-        source={require("@/assets/images/vip_transportes_preto_e_branco.png")}
-        style={styles.logo}
-      /> */}
+      <View style={styles.logo_section}>
+        <Image
+          source={require("@/assets/images/vip_transportes_preto_e_branco.png")}
+          style={styles.logo}
+        />
+      </View>
 
       <View style={styles.user_section}>
         <TouchableOpacity style={styles.notify_button}>
@@ -36,8 +40,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
+  menu_section: {
+    width: '20%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  logo_section: {
+    width: '60%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
   logo: {
-    width: 25,
+    width: 100,
+    height: 100,
   },
 
   user_section: {
@@ -55,7 +72,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-   user_button: {
+  user_button: {
     padding: 20,
     width: 25,
     height: 25,
