@@ -65,8 +65,9 @@ export default function RegisterScreen() {
                                 <Icon name="user" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, userError && styles.inputError, { color: user ? '#000' : '#C7C7C7' }]}
+                                style={[styles.input, userError && styles.inputError]}
                                 placeholder="Usuário"
+                                placeholderTextColor={'#C7C7C7'}
                                 value={user}
                                 onChangeText={setUser}
                                 underlineColorAndroid="transparent"
@@ -80,8 +81,9 @@ export default function RegisterScreen() {
                                 <Icon name="at" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, emailError && styles.inputError, { color: email ? '#000' : '#C7C7C7' }]}
+                                style={[styles.input, emailError && styles.inputError]}
                                 placeholder="E-mail"
+                                placeholderTextColor={'#C7C7C7'}
                                 value={email}
                                 onChangeText={setEmail} // Atualiza o estado com o texto digitado
                                 keyboardType="email-address" // Define o tipo de teclado como email
@@ -95,8 +97,9 @@ export default function RegisterScreen() {
                                 <Icon name="lock" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, passwordError && styles.inputError, { color: password ? '#000' : '#C7C7C7' }]}
+                                style={[styles.input, passwordError && styles.inputError]}
                                 placeholder="Senha"
+                                placeholderTextColor={'#C7C7C7'}
                                 secureTextEntry={true} // Oculta o texto
                                 value={password}
                                 onChangeText={setPassword} // Atualiza o estado com o texto digitado
@@ -110,8 +113,9 @@ export default function RegisterScreen() {
                                 <Icon name="unlock-alt" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, confirmPasswordError && styles.inputError, { color: confirmPassword ? '#000' : '#C7C7C7' }]}
+                                style={[styles.input, confirmPasswordError && styles.inputError]}
                                 placeholder="Confirmar Senha"
+                                placeholderTextColor={'#C7C7C7'}
                                 secureTextEntry={true} // Oculta o texto
                                 value={confirmPassword}
                                 onChangeText={setConfirmPassword} // Atualiza o estado com o texto digitado

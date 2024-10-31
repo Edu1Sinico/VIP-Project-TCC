@@ -18,9 +18,50 @@ export default StyleSheet.create({
         fontSize: 22,
         fontWeight: 'light',
         color: '#fff',
+        marginBottom: 30,
     },
 
-    main_section: {
+    balanceSection: {
+        position: 'absolute',
+        top: 200, // Ajuste este valor conforme necessário para centralizar
+        left: '10%',
+        right: '10%',
+        backgroundColor: '#fff',
+        borderRadius: 15,
+        padding: 20,
+        zIndex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        elevation: 5, // Para sombra no Android
+      },
+
+      balanceIconSection: {
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+
+      balanceTextSection: {
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+
+      balanceTitle: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: '#333',
+      },
+
+      balanceValue: {
+        fontSize: 24,
+        fontWeight: 400,
+        color: '#333',
+      },
+
+    mainSection: {
         flex: 1,
         width: '100%',
         marginTop: 50,
@@ -32,10 +73,11 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
 
-    main_top_section: {
+    mainTopSection: {
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: 40,
     },
 
     inputSection: {
@@ -50,7 +92,6 @@ export default StyleSheet.create({
         height: 50,
         backgroundColor: '#EDEDED',
         paddingLeft: 10,
-        color: '#C7C7C7',
         borderBottomRightRadius: 10,
         borderTopRightRadius: 10,
     },

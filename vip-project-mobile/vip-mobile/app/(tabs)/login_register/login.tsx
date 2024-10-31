@@ -63,8 +63,9 @@ export default function LoginScreen() {
                                 <Icon name="user" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, userError && styles.inputError, { color: user ? '#000' : '#C7C7C7' }]} // Aplica o estilo de erro se userError for true
+                                style={[styles.input, userError && styles.inputError]} // Aplica o estilo de erro se userError for true
                                 placeholder="Usuário"
+                                placeholderTextColor={'#C7C7C7'}
                                 value={user}
                                 onChangeText={setUser}
                                 underlineColorAndroid="transparent"
@@ -77,8 +78,9 @@ export default function LoginScreen() {
                                 <Icon name="at" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, emailError && styles.inputError, { color: email ? '#000' : '#C7C7C7' }]} // Aplica o estilo de erro se emailError for true
+                                style={[styles.input, emailError && styles.inputError]} // Aplica o estilo de erro se emailError for true
                                 placeholder="E-mail"
+                                placeholderTextColor={'#C7C7C7'}
                                 value={email}
                                 onChangeText={setEmail} // Atualiza o estado com o texto digitado
                                 keyboardType="email-address" // Define o tipo de teclado como email
@@ -92,8 +94,9 @@ export default function LoginScreen() {
                                 <Icon name="lock" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, passwordError && styles.inputError, { color: password ? '#000' : '#C7C7C7' } ]} // Aplica o estilo de erro se passwordError for true
+                                style={[styles.input, passwordError && styles.inputError]} // Aplica o estilo de erro se passwordError for true
                                 placeholder="Senha"
+                                placeholderTextColor={'#C7C7C7'}
                                 secureTextEntry={true} // Oculta o texto
                                 value={password}
                                 onChangeText={setPassword} // Atualiza o estado com o texto digitado

@@ -76,7 +76,6 @@ export default StyleSheet.create({
         height: 45,
         backgroundColor: '#fff',
         paddingLeft: 10,
-        color: '#C7C7C7',
     },
 
     inputError: {
