@@ -1,5 +1,5 @@
 // src/screens/HomeScreen.js
-import React = require('react');
+import React from 'react';
 import { View, Text } from 'react-native';
 
 // Importando a estilização

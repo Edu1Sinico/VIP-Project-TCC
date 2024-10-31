@@ -63,7 +63,7 @@ export default function LoginScreen() {
                                 <Icon name="user" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, userError && styles.inputError]} // Aplica o estilo de erro se userError for true
+                                style={[styles.input, userError && styles.inputError, { color: user ? '#000' : '#C7C7C7' }]} // Aplica o estilo de erro se userError for true
                                 placeholder="Usuário"
                                 value={user}
                                 onChangeText={setUser}
@@ -77,7 +77,7 @@ export default function LoginScreen() {
                                 <Icon name="at" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, emailError && styles.inputError]} // Aplica o estilo de erro se emailError for true
+                                style={[styles.input, emailError && styles.inputError, { color: email ? '#000' : '#C7C7C7' }]} // Aplica o estilo de erro se emailError for true
                                 placeholder="E-mail"
                                 value={email}
                                 onChangeText={setEmail} // Atualiza o estado com o texto digitado
@@ -92,7 +92,7 @@ export default function LoginScreen() {
                                 <Icon name="lock" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, passwordError && styles.inputError]} // Aplica o estilo de erro se passwordError for true
+                                style={[styles.input, passwordError && styles.inputError, { color: password ? '#000' : '#C7C7C7' } ]} // Aplica o estilo de erro se passwordError for true
                                 placeholder="Senha"
                                 secureTextEntry={true} // Oculta o texto
                                 value={password}

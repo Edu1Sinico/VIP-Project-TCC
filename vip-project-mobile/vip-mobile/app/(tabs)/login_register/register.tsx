@@ -65,7 +65,7 @@ export default function RegisterScreen() {
                                 <Icon name="user" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, userError && styles.inputError]}
+                                style={[styles.input, userError && styles.inputError, { color: user ? '#000' : '#C7C7C7' }]}
                                 placeholder="Usuário"
                                 value={user}
                                 onChangeText={setUser}
@@ -80,7 +80,7 @@ export default function RegisterScreen() {
                                 <Icon name="at" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, emailError && styles.inputError]}
+                                style={[styles.input, emailError && styles.inputError, { color: email ? '#000' : '#C7C7C7' }]}
                                 placeholder="E-mail"
                                 value={email}
                                 onChangeText={setEmail} // Atualiza o estado com o texto digitado
@@ -95,7 +95,7 @@ export default function RegisterScreen() {
                                 <Icon name="lock" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, passwordError && styles.inputError]}
+                                style={[styles.input, passwordError && styles.inputError, { color: password ? '#000' : '#C7C7C7' }]}
                                 placeholder="Senha"
                                 secureTextEntry={true} // Oculta o texto
                                 value={password}
@@ -110,7 +110,7 @@ export default function RegisterScreen() {
                                 <Icon name="unlock-alt" size={20} color="#fff" />
                             </View>
                             <TextInput
-                                style={[styles.input, confirmPasswordError && styles.inputError]}
+                                style={[styles.input, confirmPasswordError && styles.inputError, { color: confirmPassword ? '#000' : '#C7C7C7' }]}
                                 placeholder="Confirmar Senha"
                                 secureTextEntry={true} // Oculta o texto
                                 value={confirmPassword}
