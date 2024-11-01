@@ -39,7 +39,7 @@ export default function HomeScreen() {
             <Icon
               name={showBalance ? 'eye' : 'eye-slash'} // Alterna o ícone com base no estado
               size={20}
-              color="#555"
+              color="#166CE2"
             />
           </TouchableOpacity>
         </View>
