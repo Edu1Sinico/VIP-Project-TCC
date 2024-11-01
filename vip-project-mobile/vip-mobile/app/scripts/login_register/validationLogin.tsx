@@ -1,6 +1,8 @@
 export function inputValidationLogin(user, email, password, setMessageAlert, setUserError, setEmailError, setPasswordError, setModalVisible) {
     let message = "";
 
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; //Formatação para o Email
+
     // Verifica se todos os campos estão vazios
     if (!(user === '' && email === '' && password === '')) {
 
@@ -24,8 +26,8 @@ export function inputValidationLogin(user, email, password, setMessageAlert, set
             setModalVisible(true);
             return false; // Interrompe a execução aqui
         }
-        else if (!email.includes('@') || !email.includes('.com')) {
-            message = 'O campo de e-mail precisa conter o (@) ou (.com)!';
+        else if (!emailRegex.test(email) || !email.endsWith('.com')) {
+            message = 'O campo de e-mail precisa estar em um formato válido (exemplo@dominio.com)';
             setEmailError(true);
             setMessageAlert(message);
             setModalVisible(true);

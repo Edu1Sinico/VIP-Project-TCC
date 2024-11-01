@@ -32,7 +32,7 @@ export default function HomeScreen() {
         </View>
         <View style={styles.balanceTextSection}>
           <Text style={styles.balanceTitle}>Saldo Disponível</Text>
-          <Text style={styles.balanceValue}>{showBalance ? ' R$ ●●●●' : 'R$ 0,00'} </Text>  {/* Realiza a troca do valor conforme criacado no botão */}
+          <Text style={styles.balanceValue}>{showBalance ? 'R$ ●●●●' : 'R$ 0,00'} </Text>  {/* Realiza a troca do valor conforme criacado no botão */}
         </View>
         <View style={styles.visibleButtonSection}>
           <TouchableOpacity onPress={() => setShowBalance(!showBalance)}>
