@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Animated  } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity  } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '@/app/styles/home/HomeStyle';
 
 // Importando o Header como componente
-import Header from '@/components/header/Header';
+import Header from '@/components/header/header';
 
 
 export default function HomeScreen() {

@@ -33,11 +33,11 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   header: {
-    padding: 15,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: '#166CE2',
   },
 
   menu_section: {

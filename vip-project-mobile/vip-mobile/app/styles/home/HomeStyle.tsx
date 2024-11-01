@@ -23,7 +23,7 @@ export default StyleSheet.create({
 
     balanceSection: {
         position: 'absolute',
-        top: 200, // Ajuste este valor conforme necessário para centralizar
+        top: 170, // Ajuste este valor conforme necessário para centralizar
         left: '10%',
         right: '10%',
         backgroundColor: '#fff',
