@@ -44,6 +44,11 @@ export default StyleSheet.create({
         justifyContent: 'center',
       },
 
+      balanceDollarIcon: {
+        fontSize: 50,
+        fontWeight: 'bold',
+      },
+
       balanceTextSection: {
         alignItems: 'center',
         justifyContent: 'center',
@@ -59,6 +64,11 @@ export default StyleSheet.create({
         fontSize: 24,
         fontWeight: 400,
         color: '#333',
+      },
+
+      visibleButtonSection: {
+        alignItems: 'center',
+        justifyContent: 'center',
       },
 
     mainSection: {

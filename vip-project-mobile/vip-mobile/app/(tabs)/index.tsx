@@ -35,9 +35,9 @@ export default function App() {
 
 // import React from 'react';
 // import { useState } from 'react';
-// import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+// import { View, Text, TextInput, TouchableOpacity, Animated  } from 'react-native';
 
-// import Icon from 'react-native-vector-icons/FontAwesome';
+// import Icon from 'react-native-vector-icons/FontAwesome5';
 
 // // Importando a estilização
 // import styles from '@/app/styles/home/HomeStyle';
@@ -45,9 +45,12 @@ export default function App() {
 // // Importando o Header como componente
 // import Header from '@/components/header/Header';
 
+
 // export default function HomeScreen() {
 
+//   // useState
 //   const [search, setSearch] = useState('');
+//   const [showBalance, setShowBalance] = useState(true); // Cria um useState booleano para a mudança de estado da visibilidade do saldo
 
 //   return (
 //     <View style={styles.container}>
@@ -60,11 +63,20 @@ export default function App() {
 //       {/* Seção de saldo disponível */}
 //       <View style={styles.balanceSection}>
 //         <View style={styles.balanceIconSection}>
-//           <Icon name="dollar" size={50} />
+//           <Text style={styles.balanceDollarIcon}>$</Text>
 //         </View>
 //         <View style={styles.balanceTextSection}>
 //           <Text style={styles.balanceTitle}>Saldo Disponível</Text>
-//           <Text style={styles.balanceValue}>R$ 0,00</Text>
+//           <Text style={styles.balanceValue}>{showBalance ? ' R$ ●●●●' : 'R$ 0,00'} </Text>  {/* Realiza a troca do valor conforme criacado no botão */}
+//         </View>
+//         <View style={styles.visibleButtonSection}>
+//           <TouchableOpacity onPress={() => setShowBalance(!showBalance)}>
+//             <Icon
+//               name={showBalance ? 'eye' : 'eye-slash'} // Alterna o ícone com base no estado
+//               size={20}
+//               color="#555"
+//             />
+//           </TouchableOpacity>
 //         </View>
 //       </View>
 
@@ -103,19 +115,19 @@ export default function App() {
 //               </TouchableOpacity>
 
 //               <TouchableOpacity style={styles.iconButton}>
-//                 <Icon name="money" size={50} color={'#fff'}></Icon>
+//                 <Icon name="money-bill" size={50} color={'#fff'}></Icon>
 //                 <Text style={styles.textIcon}>Saldo</Text>
 //               </TouchableOpacity>
 
 //               <TouchableOpacity style={styles.iconButton}>
-//                 <Icon name="map-marker" size={50} color={'#fff'}></Icon>
+//                 <Icon name="map-marker-alt" size={50} color={'#fff'}></Icon>
 //                 <Text style={styles.textIcon}>Rotas</Text>
 //               </TouchableOpacity>
 //             </View>
 
 //             <View style={styles.buttonBottomSection}>
-//             <TouchableOpacity style={styles.iconButton}>
-//                 <Icon name="star-o" size={50} color={'#fff'}></Icon>
+//               <TouchableOpacity style={styles.iconButton}>
+//                 <Icon name="star" size={50} color={'#fff'}></Icon>
 //                 <Text style={styles.textIcon}>Favoritos</Text>
 //               </TouchableOpacity>
 
