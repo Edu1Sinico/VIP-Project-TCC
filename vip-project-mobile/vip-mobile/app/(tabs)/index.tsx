@@ -35,7 +35,7 @@ export default function App() {
 
 // import React from 'react';
 // import { useState } from 'react';
-// import { View, Text, TextInput } from 'react-native';
+// import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 // import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -90,6 +90,47 @@ export default function App() {
 //           </View>
 //         </View>
 
+//         {/* Seção de baixo */}
+//         <View style={styles.mainBottomSection}>
+
+//           <View style={styles.divisorBar}></View>
+
+//           <View style={styles.buttonSection}>
+//             <View style={styles.buttonTopSection}>
+//               <TouchableOpacity style={styles.iconButton}>
+//                 <Icon name="bus" size={50} color={'#fff'}></Icon>
+//                 <Text style={styles.textIcon}>Linhas</Text>
+//               </TouchableOpacity>
+
+//               <TouchableOpacity style={styles.iconButton}>
+//                 <Icon name="money" size={50} color={'#fff'}></Icon>
+//                 <Text style={styles.textIcon}>Saldo</Text>
+//               </TouchableOpacity>
+
+//               <TouchableOpacity style={styles.iconButton}>
+//                 <Icon name="map-marker" size={50} color={'#fff'}></Icon>
+//                 <Text style={styles.textIcon}>Rotas</Text>
+//               </TouchableOpacity>
+//             </View>
+
+//             <View style={styles.buttonBottomSection}>
+//             <TouchableOpacity style={styles.iconButton}>
+//                 <Icon name="star-o" size={50} color={'#fff'}></Icon>
+//                 <Text style={styles.textIcon}>Favoritos</Text>
+//               </TouchableOpacity>
+
+//               <TouchableOpacity style={styles.iconButton}>
+//                 <Icon name="question" size={50} color={'#fff'}></Icon>
+//                 <Text style={styles.textIcon}>Ajuda</Text>
+//               </TouchableOpacity>
+
+//               <TouchableOpacity style={styles.iconButton}>
+//                 <Icon name="user-circle" size={50} color={'#fff'}></Icon>
+//                 <Text style={styles.textIcon}>Conta</Text>
+//               </TouchableOpacity>
+//             </View>
+//           </View>
+//         </View>
 
 //       </View>
 //     </View>

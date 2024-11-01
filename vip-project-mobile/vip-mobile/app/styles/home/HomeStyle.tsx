@@ -106,5 +106,59 @@ export default StyleSheet.create({
         borderTopLeftRadius: 10,
     },
 
+    mainBottomSection: {
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginTop: 25,
+  },
+
+  divisorBar: {
+    backgroundColor: '#D9D9D9',
+    width: 50,
+    height: 10,
+    borderRadius: 5,
+  },
+
+  buttonSection: {
+    width: '100%',
+    marginTop: 10,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
+
+  buttonTopSection: {
+    width: '100%',
+    padding: 25,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
+
+  buttonBottomSection: {
+    width: '100%',
+    padding: 18,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
+
+  iconButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#166CE2',
+    width: 95,
+    height: 95,
+    borderRadius: 20,
+  },
+
+  textIcon: {
+    fontWeight: 'light',
+    fontSize: 15,
+    marginTop: 2,
+    color: '#fff',
+  },
+
 
 });
