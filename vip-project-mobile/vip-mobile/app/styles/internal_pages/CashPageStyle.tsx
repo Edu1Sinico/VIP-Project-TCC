@@ -19,6 +19,7 @@ export default StyleSheet.create({
         width: '90%',
         padding: 20,
         borderRadius: 10,
+        marginBottom: 10,
         backgroundColor: '#fff',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -43,7 +44,7 @@ export default StyleSheet.create({
 
     balanceText: {
         color: '#6A6A6A',
-        fontSize: 15,
+        fontSize: 17,
         fontWeight: 'bold',
     },
 
@@ -62,6 +63,39 @@ export default StyleSheet.create({
         width: '12%',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+
+    buttonSection: {
+        marginTop: 10,
+        width: '90%',
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly'
+    },
+
+    cashButtonsSection: {
+        width: '50%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    iconButton: {
+        width: 190,
+        height: 190,
+        borderRadius: 10,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        elevation: 5, // Para sombra no Android
+    },
+
+    buttonText: {
+        fontSize: 17,
+        fontWeight: 'bold',
+        color: '#166CE2',
     },
 
 });

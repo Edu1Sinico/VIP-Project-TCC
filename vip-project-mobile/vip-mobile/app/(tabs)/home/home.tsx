@@ -86,7 +86,7 @@ export default function HomeScreen() {
 
               <TouchableOpacity style={styles.iconButton}>
                 <Icon name="map-marker-alt" size={50} color={'#fff'}></Icon>
-                <Text style={styles.textIcon}>Rotas</Text>
+                <Text style={styles.textIcon}>Pontos</Text>
               </TouchableOpacity>
             </View>
 
