@@ -16,9 +16,6 @@ export function Routes() {
                 tabBarActiveTintColor: '#166CE2',  // Cor do ícone quando está focado
                 tabBarInactiveTintColor: 'gray',  // Cor do ícone quando não está focado
                 tabBarStyle: { height: 70 },  // Aumenta a altura do bottomNavigator
-                tabBarHideOnKeyboard: true
-                animationEnabled: true,  // Habilita a animação de transição
-                animationTypeForReplace: 'push',  // Define o tipo de animação
             }}
         >
             <Tab.Screen
