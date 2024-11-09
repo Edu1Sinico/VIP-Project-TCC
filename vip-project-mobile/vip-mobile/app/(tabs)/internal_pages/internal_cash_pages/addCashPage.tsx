@@ -18,7 +18,7 @@ export default function CashScreen() {
   return (
     <View style={styles.container}>
       <Header />
-      <SemiHeader />
+      <SemiHeader route={{ params: { pageType: 'add' }}} />
 
       <View style={styles.mainSection}>
         {/* Botão do PIX */}
