@@ -17,8 +17,8 @@ export default function CashScreen() {
 
   return (
     <View style={styles.container}>
-      <Header />
-      <SemiHeader route={{ params: { pageType: 'add' }}} />
+      <Header backgroundActive={true}/>
+      <SemiHeader title="Adicionar Créditos" />
 
       <View style={styles.mainSection}>
         {/* Botão do PIX */}

@@ -3,9 +3,9 @@ import React from 'react';
 import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-const Header = () => {
+const Header = ({ backgroundActive }) => {
   return (
-    <View style={styles.header}>
+    <View style={[styles.header, backgroundActive && styles.backgroundActive]}>
       <View style={styles.menu_section}>
         <TouchableOpacity>
           <Icon name="ellipsis-h" size={25} color="#fff" />
@@ -27,7 +27,7 @@ const Header = () => {
           <Icon name="user" size={25} color="#fff" />
         </TouchableOpacity>
       </View>
-    </View>
+    </View >
   );
 };
 
@@ -37,6 +37,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+
+  backgroundActive: {
     backgroundColor: '#166CE2',
   },
 

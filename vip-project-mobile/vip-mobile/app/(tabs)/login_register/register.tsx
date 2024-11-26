@@ -6,6 +6,7 @@ import { useLinkTo } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 // Importando a tela de aviso do campo vazio
 import { ModalAlertValidation } from '@/components/modal/ModalAlertValidation';
+import { ModalConfirmValidation } from '@/components/modal/ModalConfirmValidation';
 import { inputValidationRegister } from '@/app/scripts/login_register/validationRegister';
 import React from 'react';
 
@@ -19,7 +20,8 @@ export default function RegisterScreen() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [modalVisible, setModalVisible] = useState(false);
+    const [alertModalVisible, setAlertModalVisible] = useState(false);
+    const [confirmModalVisible, setConfirmModalVisible] = useState(false);
     const linkTo = useLinkTo(); // Sistema de links do react navigator
 
     // Estados de erro para campos individuais
@@ -36,12 +38,75 @@ export default function RegisterScreen() {
 
 
     const handleRegister = () => {
-        if (inputValidationRegister(user, email, password, confirmPassword, setMessageAlert, setUserError, setEmailError, setPasswordError, setConfirmPasswordError, setModalVisible)) {
-            setSuccessRegister(true);
-            setTimeout(() => {
-                linkTo('/Home');
-                setModalVisible(false)
-            }, 1500);
+        // Realiza a validação
+        const isValid = inputValidationRegister(
+            user,
+            email,
+            password,
+            confirmPassword,
+            setMessageAlert,
+            setUserError,
+            setEmailError,
+            setPasswordError,
+            setConfirmPasswordError,
+            setAlertModalVisible
+        );
+
+        if (isValid) {
+            setAlertModalVisible(false);
+            // Caso a validação seja bem-sucedida, exibe o modal de confirmação
+            setConfirmModalVisible(true);
+        } else {
+            // Caso a validação falhe, exibe o modal de alerta
+            setAlertModalVisible(true);
+        }
+    };
+
+
+
+    // Responde à escolha do modal de confirmação
+    const handleConfirmationResponse = async (response) => {
+        setConfirmModalVisible(false); // Fecha o modal de confirmação
+
+        const id = await cadastrarUsuario();
+
+        if (id) { // Só redireciona se o cadastro foi bem-sucedido
+            if (response === 'yes') {
+                linkTo(`/Register-Plus?id=${id}`);
+            } else {
+                linkTo(`/Home`, { params: { id } }); // Passa os parâmetros explicitamente
+            }
+        }
+    };
+    const cadastrarUsuario = async () => {
+        try {
+            // Define o endpoint da API (ajuste o endereço do backend)
+            const response = await fetch('http://localhost:3000/api/criarUsuario', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    nome: user,
+                    email: email,
+                    senha: password,
+                }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                return data.id_usuario;
+            } else {
+                console.error('Erro ao cadastrar usuário:', await response.text());
+                setMessageAlert('Erro ao cadastrar usuário. Tente novamente.');
+                setAlertModalVisible(true);
+                return null;
+            }
+        } catch (error) {
+            console.error('Erro de conexão:', error);
+            setMessageAlert('Erro de conexão com o servidor. Tente novamente.');
+            setAlertModalVisible(true);
+            return null;
         }
     };
 
@@ -136,16 +201,31 @@ export default function RegisterScreen() {
                 </View>
             </ImageBackground >
 
-            {/* Modal de alerta */}
+            {/* Modal de Confirmação */}
             <Modal
-                animationType='fade'
+                animationType="fade"
                 transparent={true}
-                visible={modalVisible}
+                visible={confirmModalVisible}
             >
-                <ModalAlertValidation messageAlert={messageAlert} successMessage={successRegister} handleClose={() => setModalVisible(false)} />
+                <ModalConfirmValidation
+                    onConfirm={() => handleConfirmationResponse('yes')}
+                    onCancel={() => handleConfirmationResponse('no')}
+                />
+            </Modal>
+
+            {/* Modal de Alerta */}
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={alertModalVisible}
+            >
+                <ModalAlertValidation
+                    messageAlert={messageAlert}
+                    successMessage={false}
+                    handleClose={() => setAlertModalVisible(false)}
+                />
             </Modal>
         </View >
-
 
     );
 }

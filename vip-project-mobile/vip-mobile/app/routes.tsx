@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from './(tabs)/home/home';
-import CashScreen from './(tabs)/internal_pages/internal_cash_pages/cashPage';
+import { HomeNavigator } from './routes/homeNavigator';
+import { CashNavigator } from './routes/cashNavigator';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -20,7 +20,7 @@ export function Routes() {
         >
             <Tab.Screen
                 name="Saldo"
-                component={CashScreen}
+                component={CashNavigator}
                 options={{
                     headerShown: false,
                     tabBarIcon: ({ focused, color }) => (
@@ -32,7 +32,7 @@ export function Routes() {
             />
             <Tab.Screen
                 name="Home"
-                component={HomeScreen}
+                component={HomeNavigator}
                 options={{
                     headerShown: false,
                     tabBarIcon: ({ focused, color }) => (

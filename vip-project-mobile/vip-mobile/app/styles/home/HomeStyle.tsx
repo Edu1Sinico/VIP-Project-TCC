@@ -1,126 +1,135 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-    container: {
-        flex: 1,
-        height: '100%',
-        backgroundColor: '#166CE2',
-    },
+  container: {
+    flex: 1,
+    height: '100%',
+    backgroundColor: '#166CE2',
+  },
 
-    user_section: {
-        width: '100%',
-        height: '10%',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    
-    text_title: {
-        fontSize: 22,
-        fontWeight: 'light',
-        color: '#fff',
-        marginBottom: 30,
-    },
+  banner: {
+    flex: 1,
+    width: '100%', // Garante que a imagem cubra toda a largura
+    height: '135%', // Garante que a imagem cubra toda a altura
+    justifyContent: 'center',
+    alignItems: 'center',
+    resizeMode: 'center', // Ajusta a imagem para cobrir todo o fundo
+  },
 
-    balanceSection: {
-        position: 'absolute',
-        top: 170, // Ajuste este valor conforme necessário para centralizar
-        left: '10%',
-        right: '10%',
-        backgroundColor: '#fff',
-        borderRadius: 15,
-        padding: 20,
-        zIndex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.3,
-        shadowRadius: 5,
-        elevation: 5, // Para sombra no Android
-      },
+  user_section: {
+    width: '100%',
+    height: '10%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-      balanceIconSection: {
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
+  text_title: {
+    fontSize: 22,
+    fontWeight: 'light',
+    color: '#fff',
+    marginBottom: 30,
+  },
 
-      balanceDollarIcon: {
-        fontSize: 50,
-        fontWeight: 'bold',
-      },
+  balanceSection: {
+    position: 'absolute',
+    top: 170, // Ajuste este valor conforme necessário para centralizar
+    left: '10%',
+    right: '10%',
+    backgroundColor: '#fff',
+    borderRadius: 15,
+    padding: 20,
+    zIndex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 5, // Para sombra no Android
+  },
 
-      balanceTextSection: {
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
+  balanceIconSection: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-      balanceTitle: {
-        fontSize: 22,
-        fontWeight: 'bold',
-        color: '#333',
-      },
+  balanceDollarIcon: {
+    fontSize: 50,
+    fontWeight: 'bold',
+  },
 
-      balanceValue: {
-        fontSize: 24,
-        fontWeight: 400,
-        color: '#333',
-      },
+  balanceTextSection: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-      visibleButtonSection: {
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
+  balanceTitle: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#333',
+  },
 
-    mainSection: {
-        flex: 1,
-        width: '100%',
-        marginTop: 50,
-        backgroundColor: '#fff',
-        borderTopRightRadius: 75,
-        borderTopLeftRadius: 75,
-        padding: 30,
-        flexDirection: 'column',
-        alignItems: 'center',
-    },
+  balanceValue: {
+    fontSize: 24,
+    fontWeight: 400,
+    color: '#333',
+  },
 
-    mainTopSection: {
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 40,
-    },
+  visibleButtonSection: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-    inputSection: {
-        width: '100%',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+  mainSection: {
+    flex: 1,
+    width: '100%',
+    marginTop: 50,
+    backgroundColor: '#fff',
+    borderTopRightRadius: 75,
+    borderTopLeftRadius: 75,
+    padding: 30,
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
 
-    input: {
-        width: '65%',
-        height: 50,
-        backgroundColor: '#EDEDED',
-        paddingLeft: 10,
-        borderBottomRightRadius: 10,
-        borderTopRightRadius: 10,
-    },
+  mainTopSection: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 40,
+  },
 
-    iconInputSection: {
-        width: 50,
-        height: 50,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#166CE2',
-        borderBottomLeftRadius: 10,
-        borderTopLeftRadius: 10,
-    },
+  inputSection: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-    mainBottomSection: {
-      width: '100%',
-      alignItems: 'center',
-      justifyContent: 'center',
-      marginTop: 25,
+  input: {
+    width: '65%',
+    height: 50,
+    backgroundColor: '#EDEDED',
+    paddingLeft: 10,
+    borderBottomRightRadius: 10,
+    borderTopRightRadius: 10,
+  },
+
+  iconInputSection: {
+    width: 50,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#166CE2',
+    borderBottomLeftRadius: 10,
+    borderTopLeftRadius: 10,
+  },
+
+  mainBottomSection: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 25,
   },
 
   divisorBar: {
@@ -154,6 +163,16 @@ export default StyleSheet.create({
     justifyContent: 'space-evenly',
   },
 
+  bigIconButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#166CE2',
+    width: 150,
+    height: 150,
+    borderRadius: 20,
+  },
+
+
   iconButton: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -161,6 +180,13 @@ export default StyleSheet.create({
     width: 95,
     height: 95,
     borderRadius: 20,
+  },
+
+  bigTextIcon: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginTop: 5,
+    color: '#fff',
   },
 
   textIcon: {
